@@ -18,11 +18,11 @@ namespace DoubleDoubleODE {
         public EulerODESolver(ddouble[] v, Func<ddouble[], ddouble[]> f)
             : base(v, f) { }
 
-        protected override void Next(ddouble h, ddouble[] v, Func<ddouble[], ddouble[]> f) {
+        public override void Next(ddouble h) {
             ddouble[] dv = f(v);
 
             for (int i = 0; i < Params; i++) {
-                this.v[i] = v[i] + h * dv[i];
+                v[i] += h * dv[i];
             }
         }
     }
