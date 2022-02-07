@@ -5,10 +5,10 @@ using System;
 
 namespace DoubleDoubleODETest {
     [TestClass]
-    public class RungeKutta23ODESolverTests {
+    public class RungeKutta4ODESolverTests {
         [TestMethod]
         public void ExpTest() {
-            RungeKutta23ODESolver solver = new(v: 1, (x) => x);
+            RungeKutta4ODESolver solver = new(v: 1, (x) => x);
 
             for (int i = 0; i < 256; i++) {
                 solver.Next(1d / 256);
@@ -16,7 +16,7 @@ namespace DoubleDoubleODETest {
 
             Console.WriteLine(solver.X);
 
-            Assert.AreEqual(0d, (double)(solver.X - ddouble.E), 1e-8);
+            Assert.AreEqual(0d, (double)(solver.X - ddouble.E), 1e-10);
         }
     }
 }

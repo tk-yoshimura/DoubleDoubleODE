@@ -2,22 +2,22 @@
 using System;
 
 namespace DoubleDoubleODE {
-    public class RungeKutta23ODESolver : ODESolver {
+    public class BogackiShampineODESolver : ODESolver {
         private static readonly ddouble c_1d2 = (ddouble)1 / 2, c_3d4 = (ddouble)3 / 4, c_1d9 = (ddouble)1 / 9;
 
-        public RungeKutta23ODESolver(ddouble v, Func<ddouble, ddouble> f)
+        public BogackiShampineODESolver(ddouble v, Func<ddouble, ddouble> f)
             : base(v, f) { }
 
-        public RungeKutta23ODESolver((ddouble x, ddouble y) v, Func<ddouble, ddouble, (ddouble dx, ddouble dy)> f)
+        public BogackiShampineODESolver((ddouble x, ddouble y) v, Func<ddouble, ddouble, (ddouble dx, ddouble dy)> f)
             : base(v, f) { }
 
-        public RungeKutta23ODESolver((ddouble x, ddouble y, ddouble z) v, Func<ddouble, ddouble, ddouble, (ddouble dx, ddouble dy, ddouble dz)> f)
+        public BogackiShampineODESolver((ddouble x, ddouble y, ddouble z) v, Func<ddouble, ddouble, ddouble, (ddouble dx, ddouble dy, ddouble dz)> f)
             : base(v, f) { }
 
-        public RungeKutta23ODESolver((ddouble x, ddouble y, ddouble z, ddouble w) v, Func<ddouble, ddouble, ddouble, ddouble, (ddouble dx, ddouble dy, ddouble dz, ddouble dw)> f)
+        public BogackiShampineODESolver((ddouble x, ddouble y, ddouble z, ddouble w) v, Func<ddouble, ddouble, ddouble, ddouble, (ddouble dx, ddouble dy, ddouble dz, ddouble dw)> f)
             : base(v, f) { }
 
-        public RungeKutta23ODESolver(ddouble[] v, Func<ddouble[], ddouble[]> f)
+        public BogackiShampineODESolver(ddouble[] v, Func<ddouble[], ddouble[]> f)
             : base(v, f) { }
 
         public override void Next(ddouble h) {
