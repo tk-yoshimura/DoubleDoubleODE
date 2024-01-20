@@ -2,7 +2,7 @@
  Double-Double Ordinary Differential Equation Solver 
 
 ## Requirement
-.NET 7.0
+.NET 8.0
 
 ## Install
 
