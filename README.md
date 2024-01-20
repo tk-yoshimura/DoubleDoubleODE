@@ -2,14 +2,13 @@
  Double-Double Ordinary Differential Equation Solver 
 
 ## Requirement
-.NET 8.0
+.NET 8.0  
+[DoubleDouble](https://github.com/tk-yoshimura/DoubleDouble)
 
 ## Install
 
 [Download DLL](https://github.com/tk-yoshimura/DoubleDoubleODE/releases)  
 [Download Nuget](https://www.nuget.org/packages/tyoshimura.doubledouble.ode/)  
-
-- Import DoubleDouble(https://github.com/tk-yoshimura/DoubleDouble)
 
 ## Usage
 ```csharp
