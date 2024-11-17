@@ -20,10 +20,13 @@ namespace DoubleDoubleODE {
 
         public override void Next(ddouble h) {
             ddouble[] dv = f(v);
+            ddouble[] v_new = new ddouble[Params];
 
             for (int i = 0; i < Params; i++) {
-                v[i] += h * dv[i];
+                v_new[i] = v[i] + h * dv[i];
             }
+
+            v = v_new;
         }
     }
 }

@@ -2,7 +2,7 @@
 using System;
 
 namespace DoubleDoubleODE {
-    public class DormandPrinceODESolver : ODESolver {        
+    public class DormandPrinceODESolver : ODESolver {
         private static readonly ddouble c_1d5 = (ddouble)1 / 5, c_3d40 = (ddouble)3 / 40;
         private static readonly ddouble c_9d40 = (ddouble)9 / 40, c_44d45 = (ddouble)44 / 45;
         private static readonly ddouble c_56d15 = (ddouble)56 / 15, c_32d9 = (ddouble)32 / 9;
@@ -31,7 +31,7 @@ namespace DoubleDoubleODE {
 
         public override void Next(ddouble h) {
             ddouble[] dv1 = f(v);
-            ddouble[] v2 = new ddouble[Params];
+            ddouble[] v2 = new ddouble[Params], v_new = new ddouble[Params];
 
             for (int i = 0; i < Params; i++) {
                 v2[i] = v[i] + h * c_1d5 * dv1[i];
@@ -68,8 +68,10 @@ namespace DoubleDoubleODE {
             ddouble[] dv6 = f(v6);
 
             for (int i = 0; i < Params; i++) {
-                v[i] += h * (c_35d384 * dv1[i] + c_500d1113 * dv3[i] + c_125d192 * dv4[i] - c_2187d6784 * dv5[i] + c_11d84 * dv6[i]);
+                v_new[i] = v[i] + h * (c_35d384 * dv1[i] + c_500d1113 * dv3[i] + c_125d192 * dv4[i] - c_2187d6784 * dv5[i] + c_11d84 * dv6[i]);
             }
+
+            v = v_new;
         }
     }
 }

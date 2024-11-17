@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("DoubleDouble.ODE")]
@@ -15,4 +14,4 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("FE7AFD95-5A6A-48AE-8519-7D37ACFDC5EB")]
 
-[assembly: AssemblyVersion("1.4.0.*")]
+[assembly: AssemblyVersion("1.4.1.*")]

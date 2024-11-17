@@ -3,7 +3,7 @@ using System;
 
 namespace DoubleDoubleODE {
     public abstract class ODESolver {
-        protected readonly ddouble[] v;
+        protected ddouble[] v;
         protected readonly Func<ddouble[], ddouble[]> f;
 
         public int Params => v.Length;
@@ -21,23 +21,23 @@ namespace DoubleDoubleODE {
         public ddouble this[int index] => v[index];
 
         public ODESolver(ddouble v, Func<ddouble, ddouble> f) {
-            this.v = new ddouble[] { v };
-            this.f = (v) => new ddouble[] { f(v[0]) };
+            this.v = [v];
+            this.f = (v) => [f(v[0])];
         }
 
         public ODESolver((ddouble x, ddouble y) v, Func<ddouble, ddouble, (ddouble dx, ddouble dy)> f) {
-            this.v = new ddouble[] { v.x, v.y };
-            this.f = (v) => { var (dx, dy) = f(v[0], v[1]); return new ddouble[] { dx, dy }; };
+            this.v = [v.x, v.y];
+            this.f = (v) => { var (dx, dy) = f(v[0], v[1]); return [dx, dy]; };
         }
 
         public ODESolver((ddouble x, ddouble y, ddouble z) v, Func<ddouble, ddouble, ddouble, (ddouble dx, ddouble dy, ddouble dz)> f) {
-            this.v = new ddouble[] { v.x, v.y, v.z };
-            this.f = (v) => { var (dx, dy, dz) = f(v[0], v[1], v[2]); return new ddouble[] { dx, dy, dz }; };
+            this.v = [v.x, v.y, v.z];
+            this.f = (v) => { var (dx, dy, dz) = f(v[0], v[1], v[2]); return [dx, dy, dz]; };
         }
 
         public ODESolver((ddouble x, ddouble y, ddouble z, ddouble w) v, Func<ddouble, ddouble, ddouble, ddouble, (ddouble dx, ddouble dy, ddouble dz, ddouble dw)> f) {
-            this.v = new ddouble[] { v.x, v.y, v.z, v.w };
-            this.f = (v) => { var (dx, dy, dz, dw) = f(v[0], v[1], v[2], v[3]); return new ddouble[] { dx, dy, dz, dw }; };
+            this.v = [v.x, v.y, v.z, v.w];
+            this.f = (v) => { var (dx, dy, dz, dw) = f(v[0], v[1], v[2], v[3]); return [dx, dy, dz, dw]; };
         }
 
         public ODESolver(ddouble[] v, Func<ddouble[], ddouble[]> f) {
