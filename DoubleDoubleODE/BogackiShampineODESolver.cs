@@ -3,9 +3,6 @@ using System;
 
 namespace DoubleDoubleODE {
     public class BogackiShampineODESolver : ODESolver {
-        private const double c_3d4 = 0.75d;
-        private static readonly ddouble c_1d9 = (ddouble)1 / 9;
-
         public BogackiShampineODESolver(ddouble v, Func<ddouble, ddouble> f)
             : base(v, f) { }
 
@@ -22,7 +19,7 @@ namespace DoubleDoubleODE {
             : base(v, f) { }
 
         public override void Next(ddouble h) {
-            ddouble h_1d2 = ddouble.Ldexp(h, -1), h_3d4 = h * c_3d4, h_1d9 = h * c_1d9;
+            ddouble h_1d2 = ddouble.Ldexp(h, -1), h_3d4 = h * 0.75d, h_1d9 = h / 9d;
 
             ddouble[] dv1 = f(v);
             ddouble[] v2 = new ddouble[Params], v_new = new ddouble[Params];

@@ -19,7 +19,7 @@ namespace DoubleDoubleODE {
             : base(v, f) { }
 
         public override void Next(ddouble h) {
-            ddouble h_half = ddouble.Ldexp(h, -1);
+            ddouble h_1d2 = ddouble.Ldexp(h, -1);
 
             ddouble[] dv1 = f(v);
             ddouble[] v2 = new ddouble[Params], v_new = new ddouble[Params];
@@ -31,7 +31,7 @@ namespace DoubleDoubleODE {
             ddouble[] dv2 = f(v2);
 
             for (int i = 0; i < Params; i++) {
-                v_new[i] = v[i] + h_half * (dv1[i] + dv2[i]);
+                v_new[i] = v[i] + h_1d2 * (dv1[i] + dv2[i]);
             }
 
             v = v_new;

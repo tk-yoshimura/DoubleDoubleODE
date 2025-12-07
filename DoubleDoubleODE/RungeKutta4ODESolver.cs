@@ -3,8 +3,6 @@ using System;
 
 namespace DoubleDoubleODE {
     public class RungeKutta4ODESolver : ODESolver {
-        private static readonly ddouble c_1d6 = (ddouble)1 / 6;
-
         public RungeKutta4ODESolver(ddouble v, Func<ddouble, ddouble> f)
             : base(v, f) { }
 
@@ -21,7 +19,7 @@ namespace DoubleDoubleODE {
             : base(v, f) { }
 
         public override void Next(ddouble h) {
-            ddouble h_1d2 = ddouble.Ldexp(h, -1), h_1d6 = h * c_1d6;
+            ddouble h_1d2 = ddouble.Ldexp(h, -1), h_1d6 = h / 6d;
 
             ddouble[] dv1 = f(v);
             ddouble[] v2 = new ddouble[Params], v_new = new ddouble[Params];
