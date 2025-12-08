@@ -16,7 +16,7 @@ namespace DoubleDoubleODETest {
 
             Console.WriteLine(solver.X);
 
-            Assert.AreEqual(0d, (double)(solver.X - ddouble.E), 1e-12);
+            Assert.AreEqual(0d, (double)(solver.X - ddouble.E), 1e-15);
         }
     }
 }

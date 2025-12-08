@@ -21,22 +21,20 @@ namespace DoubleDoubleODE {
         public override void Next(ddouble h) {
             ddouble h_1d2 = ddouble.Ldexp(h, -1), h_1d6 = h / 6d;
 
+            ddouble[] v2 = new ddouble[Params], v3 = new ddouble[Params], v4 = new ddouble[Params], v5 = new ddouble[Params];
             ddouble[] dv1 = f(v);
-            ddouble[] v2 = new ddouble[Params], v_new = new ddouble[Params];
 
             for (int i = 0; i < Params; i++) {
                 v2[i] = v[i] + h_1d2 * dv1[i];
             }
 
             ddouble[] dv2 = f(v2);
-            ddouble[] v3 = new ddouble[Params];
 
             for (int i = 0; i < Params; i++) {
                 v3[i] = v[i] + h_1d2 * dv2[i];
             }
 
             ddouble[] dv3 = f(v3);
-            ddouble[] v4 = new ddouble[Params];
 
             for (int i = 0; i < Params; i++) {
                 v4[i] = v[i] + h * dv3[i];
@@ -45,10 +43,10 @@ namespace DoubleDoubleODE {
             ddouble[] dv4 = f(v4);
 
             for (int i = 0; i < Params; i++) {
-                v_new[i] = v[i] + h_1d6 * (dv1[i] + ddouble.Ldexp(dv2[i] + dv3[i], 1) + dv4[i]);
+                v5[i] = v[i] + h_1d6 * (dv1[i] + ddouble.Ldexp(dv2[i] + dv3[i], 1) + dv4[i]);
             }
 
-            v = v_new;
+            v = v5;
         }
     }
 }
