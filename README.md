@@ -1,5 +1,5 @@
 # DoubleDoubleODE
- Double-Double Ordinary Differential Equation Solver
+ Double-Double Ordinary Differential Equation Solver 
 
 ## Requirement
 .NET 10.0  
