@@ -11,8 +11,8 @@ namespace DoubleDoubleODETest {
             ddouble mu = 1.5;
 
             DormandPrinceAdaptiveODESolver solver = new(
-                v: (0, 1), 
-                (x, y) => (y, mu * (1 - x * x) * y - x), 
+                v: (0, 1),
+                (x, y) => (y, mu * (1 - x * x) * y - x),
                 abstol: "1e-20", reltol: "1e-20", maxdepth: 12
             );
 
